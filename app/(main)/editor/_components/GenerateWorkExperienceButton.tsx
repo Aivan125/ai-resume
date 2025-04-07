@@ -1,20 +1,10 @@
+import LoadingButton from "@/components/LoadingButton";
 import { Button } from "@/components/ui/button";
 import {
-  GenerateWorkExperienceInput,
-  generateWorkExperienceSchema,
-  WorkExperience,
-} from "@/lib/validation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { WandSparklesIcon } from "lucide-react";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { generateWorkExperience } from "../action";
-import {
   Dialog,
-  DialogHeader,
   DialogContent,
   DialogDescription,
+  DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import {
@@ -25,12 +15,21 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import LoadingButton from "@/components/LoadingButton";
-import { useSubscriptionLevel } from "../../SubscriptionLevelContext";
 import usePremiumModalStore from "@/hooks/usePremiumModal";
 import { canUseAITools } from "@/lib/permissions";
+import {
+  GenerateWorkExperienceInput,
+  generateWorkExperienceSchema,
+  WorkExperience,
+} from "@/lib/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { WandSparklesIcon } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { useSubscriptionLevel } from "../../SubscriptionLevelContext";
+import { generateWorkExperience } from "../action";
 
 interface GenerateWorkExperienceButtonProps {
   onWorkExperienceGenerated: (workExperience: WorkExperience) => void;
